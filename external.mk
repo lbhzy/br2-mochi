@@ -2,7 +2,7 @@ include $(sort $(wildcard $(BR2_EXTERNAL_MOCHI_PATH)/package/*/*.mk))
 
 run:
 	@echo -e "\033[33m[INFO] Press 'Ctrl+a' then 'x' to terminate QEMU\033[0m"
-	@qemu-system-aarch64 \
+	qemu-system-aarch64 \
 		-machine virt \
 		-cpu cortex-a57 \
 		-nographic \
