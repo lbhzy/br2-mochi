@@ -10,3 +10,4 @@ export KEYS_DIR=keys/for/$ARCH/packages
 
 mkdir -p rootfs
 ./alpine-make-rootfs -p "apk-tools openrc" -c rootfs/ setup.sh
+chmod -R o+rX rootfs/
