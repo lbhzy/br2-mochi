@@ -1,6 +1,6 @@
-IMAGE_NAME := alpine-rootfs
+IMAGE_NAME := ubuntu-rootfs
 OPTIONS := --net=host --platform=linux/arm64
-COMMAND := /bin/sh
+COMMAND := bash
 
 default:
 	podman build -o type=local,dest=./rootfs $(OPTIONS) -t $(IMAGE_NAME) .
