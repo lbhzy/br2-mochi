@@ -9,6 +9,7 @@ RUN passwd -d root
 
 COPY inittab /etc/inittab
 
+RUN echo UNKNOWN >> /etc/securetty 
 
 FROM scratch AS exporter
 COPY --from=builder / /
