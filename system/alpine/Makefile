@@ -3,7 +3,8 @@ OPTIONS := --net=host --platform=linux/arm64
 COMMAND := /bin/sh
 
 default:
-	podman build -o type=local,dest=./rootfs $(OPTIONS) -t $(IMAGE_NAME) .
+	podman build --target builder $(OPTIONS) -t $(IMAGE_NAME) .
+	podman build --target exporter -o type=local,dest=./rootfs $(OPTIONS) .
 	podman image prune -f
 
 run:

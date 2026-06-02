@@ -1,4 +1,4 @@
-FROM ubuntu:26.04
+FROM ubuntu:26.04 AS builder
 
 # 设置环境变量，避免交互式安装提示
 ENV DEBIAN_FRONTEND=noninteractive
@@ -16,3 +16,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 允许 root 用户无密码登录
 RUN passwd -d root
+
+
+FROM scratch AS exporter
+COPY --from=builder / /
