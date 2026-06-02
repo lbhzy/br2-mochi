@@ -8,6 +8,7 @@ RUN rm -rf /var/cache/apk/*
 RUN passwd -d root
 
 COPY inittab /etc/inittab
+COPY interfaces /etc/network/interfaces
 
 # 修复引入 busybox-suid 导致的权限问题
 RUN echo UNKNOWN >> /etc/securetty
