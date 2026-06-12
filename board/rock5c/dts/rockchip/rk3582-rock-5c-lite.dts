@@ -912,12 +912,12 @@
 };
 
 &u2phy3 {
-	status = "okay";
+	status = "disabled";
 };
 
 &u2phy3_host {
 	phy-supply = <&vcc5v0_usb_host>;
-	status = "okay";
+	status = "disabled";
 };
 
 &uart2 {
@@ -933,6 +933,10 @@
 	status = "okay";
 };
 
+&usb_host0_ohci {
+	status = "okay";
+};
+
 &usb_host0_xhci {
 	status = "okay";
 	dr_mode = "otg";
@@ -940,11 +944,11 @@
 };
 
 &usb_host1_ehci {
-	status = "okay";
+	status = "disabled";
 };
 
 &usb_host1_ohci {
-	status = "okay";
+	status = "disabled";
 };
 
 &usb_host2_xhci {
