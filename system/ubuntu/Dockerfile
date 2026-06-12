@@ -13,7 +13,9 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
     iputils-ping \
     systemd-resolved \  
     systemd-timesyncd \
-    nano
+    nano \
+    adbd \
+    usbutils
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
