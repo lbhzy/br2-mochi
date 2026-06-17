@@ -100,7 +100,6 @@
 	vcc5v0_usb_host: regulator-vcc5v0-usb-host {
 		compatible = "regulator-fixed";
 		enable-active-high;
-		regulator-always-on;
 		gpio = <&gpio4 RK_PB5 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&usb_host_pwren_h>;
@@ -913,12 +912,12 @@
 };
 
 &u2phy3 {
-	status = "disabled";
+	status = "okay";
 };
 
 &u2phy3_host {
 	phy-supply = <&vcc5v0_usb_host>;
-	status = "disabled";
+	status = "okay";
 };
 
 &uart2 {
@@ -945,11 +944,11 @@
 };
 
 &usb_host1_ehci {
-	status = "disabled";
+	status = "okay";
 };
 
 &usb_host1_ohci {
-	status = "disabled";
+	status = "okay";
 };
 
 &usb_host2_xhci {
