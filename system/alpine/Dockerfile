@@ -3,7 +3,7 @@ FROM alpine:3.23.4 AS builder
 RUN apk update && apk add --no-cache \
     alpine-base \
     parted \
-    e2fsprogs \
+    e2fsprogs-extra \
     openssh
 
 RUN rm -rf /var/cache/apk/*
