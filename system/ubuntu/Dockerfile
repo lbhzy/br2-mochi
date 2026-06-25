@@ -22,6 +22,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
     usbutils \
     dialog \
     parted \
+    tzdata \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 允许 root 用户无密码登录
@@ -38,6 +39,10 @@ RUN userdel -r ubuntu
 RUN systemctl enable systemd-networkd && \
     printf "[Match]\nName=en*\n\n[Network]\nDHCP=yes\nDNSSEC=no\n" > /etc/systemd/network/en.network && \
     printf "[Match]\nName=eth*\n\n[Network]\nDHCP=yes\nDNSSEC=no\n" > /etc/systemd/network/eth.network
+
+# 配置 CST 时区
+RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    dpkg-reconfigure --frontend noninteractive tzdata
 
 RUN systemctl list-unit-files --type=service --state=enabled
 
