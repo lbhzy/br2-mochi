@@ -453,7 +453,7 @@
 	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
 	vpcie3v3-supply = <&pcie2x1l2_3v3>;
-	status = "okay";
+	status = "disabled";
 };
 
 &pd_gpu {
