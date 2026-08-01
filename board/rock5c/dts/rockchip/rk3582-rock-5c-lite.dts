@@ -969,7 +969,3 @@
 		remote-endpoint = <&hdmi0_in_vp0>;
 	};
 };
-
-&gpu {
-	status = "disabled";
-};
