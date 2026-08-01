@@ -39,7 +39,9 @@ RUN userdel -r ubuntu
 RUN systemctl enable systemd-networkd && \
     printf "[Match]\nName=en*\n\n[Network]\nDHCP=yes\nDNSSEC=no\n" > /etc/systemd/network/en.network && \
     printf "[Match]\nName=eth*\n\n[Network]\nDHCP=yes\nDNSSEC=no\n" > /etc/systemd/network/eth.network
-RUN systemctl mask systemd-networkd-wait-online
+
+# 覆盖 adbd.service 文件 去掉对 network-online.target 依赖
+COPY files/adbd.service /etc/systemd/system/adbd.service
 
 # 配置 CST 时区
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
