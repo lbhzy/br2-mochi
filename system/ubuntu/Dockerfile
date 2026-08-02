@@ -42,6 +42,8 @@ RUN systemctl enable systemd-networkd && \
 
 # 覆盖 adbd.service 文件 去掉对 network-online.target 依赖
 COPY files/adbd.service /etc/systemd/system/adbd.service
+COPY files/adbd-wrapper /usr/local/lib/adbd/adbd-wrapper
+RUN chmod +x /usr/local/lib/adbd/adbd-wrapper
 
 # 配置 CST 时区
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \

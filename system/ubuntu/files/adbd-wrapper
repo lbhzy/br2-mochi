@@ -1,0 +1,13 @@
+#!/bin/sh
+
+(
+    journalctl -u adbd.service -n 0 -f | while read -r line; do
+        if echo "$line" | grep -qE "FUNCTIONFS_SUSPEND"; then
+            echo "[Watchdog] Detected USB SUSPEND, restarting adbd..."
+            systemctl --no-block restart adbd.service
+            break
+        fi
+    done
+) &
+
+exec unshare -m --propagation shared /bin/sh -c 'mount --bind /bin/bash /bin/sh && exec /usr/lib/android-sdk/platform-tools/adbd'

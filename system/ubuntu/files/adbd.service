@@ -7,7 +7,7 @@ After=sys-kernel-config.mount
 [Service]
 Type=notify
 ExecStartPre=/usr/lib/android-sdk/platform-tools/adbd-usb-gadget setup
-ExecStart=/usr/lib/android-sdk/platform-tools/adbd
+ExecStart=/usr/local/lib/adbd/adbd-wrapper
 ExecStartPost=/usr/lib/android-sdk/platform-tools/adbd-usb-gadget activate
 ExecStopPost=/usr/lib/android-sdk/platform-tools/adbd-usb-gadget reset
 
