@@ -278,6 +278,10 @@
 	};
 };
 
+&hdmi0_sound {
+	status = "okay";
+};
+
 &hdptxphy0 {
 	status = "okay";
 };
@@ -404,6 +408,10 @@
 			remote-endpoint = <&es8316_p0_0>;
 		};
 	};
+};
+
+&i2s5_8ch {
+	status = "okay";
 };
 
 &mdio1 {
