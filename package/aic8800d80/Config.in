@@ -1,0 +1,8 @@
+config BR2_PACKAGE_AIC8800D80
+	bool "aic8800d80"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Linux kernel driver for AicSemi AIC8800D80 Wi-Fi/BT chip.
+
+comment "aic8800d80 needs a Linux kernel to be built"
+	depends on !BR2_LINUX_KERNEL
