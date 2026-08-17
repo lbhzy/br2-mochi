@@ -6,8 +6,16 @@ cd "$(dirname "$(readlink -f "$0")")"
 TARGET_DIR="$1"
 ROOTFS_DIR="$2/rootfs"
 
-# 清理目标目录，保留 boot 目录
-find "${TARGET_DIR}" -maxdepth 1 -not -name "$(basename "${TARGET_DIR}")" -not -name "boot" -exec rm -rf {} +
+# 清理目标目录
+EMPTY_DIR=$(mktemp -d)
+rsync -a --delete \
+    --exclude='/boot' \
+    --exclude='/lib/firmware' \
+    --exclude='/lib/modules' \
+    --exclude='/usr/lib/firmware' \
+    --exclude='/usr/lib/modules' \
+    "${EMPTY_DIR}/" "${TARGET_DIR}/"
+rmdir "${EMPTY_DIR}"
 
 cp -a "$ROOTFS_DIR/." $TARGET_DIR/
 
