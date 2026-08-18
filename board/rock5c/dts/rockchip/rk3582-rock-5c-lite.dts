@@ -250,6 +250,9 @@
 		     &gmac1_clkinout>;
 	pinctrl-names = "default";
 	status = "okay";
+	tx_delay = <0x30>;
+    rx_delay = <0x10>;
+    clock_in_out = "input";
 };
 
 &gpu {
