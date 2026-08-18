@@ -361,7 +361,7 @@
 &i2c5 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c5m2_xfer>;
-	status = "okay";
+	status = "disabled";
 
 	rtc@51 {
 		compatible = "haoyu,hym8563";
@@ -372,6 +372,7 @@
 		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&rtc_int_l>;
+		status = "disabled";
 	};
 };
 
